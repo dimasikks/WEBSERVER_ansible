@@ -1,0 +1,6 @@
+- name: ansible_webserver
+  hosts: all
+  become: true
+  gather_facts: false
+  roles:
+   - role: ansible_webserver_role

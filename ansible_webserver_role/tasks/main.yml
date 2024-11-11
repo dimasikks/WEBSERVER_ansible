@@ -1,0 +1,11 @@
+- name: install nginx
+  ansible.builtin.dnf:
+   name: nginx
+   state: present
+
+- name: change configuration
+  ansible.builtin.lineinfile:
+   path: /etc/nginx/nginx.conf
+   regexp: '^ *access_log'
+   line: 'access_log /var/log/nginx/nginx_main.log;'
+  notify: reload_nginx
